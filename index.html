@@ -23,7 +23,7 @@
         </div>
         <div class="product-info">
             <h1>
-                <a :href="link">{{product}}</a>
+                {{ title }}
             </h1>
             <p v-if="onSale">On Sale</p>
             <p v-else>not on sale</p>
@@ -36,8 +36,8 @@
             <ul>
                 <li v-for="detail in details">{{detail}}</li>
             </ul>
-            <div v-for="variant in variants" :key="variant.id"
-            @mouseover="updateImage(variant.image)" 
+            <div v-for="(variant, index) in variants" :key="variant.id"
+            @mouseover="updateVariant(index)" 
                 class="color-circle" :style="{backgroundColor: variant.color}">
 
             </div>
