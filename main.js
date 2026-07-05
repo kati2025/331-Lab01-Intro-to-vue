@@ -4,9 +4,11 @@ createApp({
     setup(){
         const product = ref('Boots')
         const description = ref('Description: good')
+        const image = ref('./assets/images/socks_green.jpg')
         return {
             product,
-            description
+            description,
+            image
         }
     }
 
