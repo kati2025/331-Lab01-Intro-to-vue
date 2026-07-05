@@ -5,10 +5,12 @@ createApp({
         const product = ref('Boots')
         const description = ref('Description: good')
         const image = ref('./assets/images/socks_green.jpg')
+        const link = ref('http://www.camt.cmu.ac.th')
         return {
             product,
             description,
-            image
+            image,
+            link
         }
     }
 
