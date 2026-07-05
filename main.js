@@ -22,6 +22,14 @@ createApp({
         const sizes = ref([
             'S','M','L'
         ])
+        const cart = ref(0)
+
+            function addToCart() {
+                cart.value +=1
+            }
+            function updateImage(variantImage){
+                image.value = variantImage
+            }
         return {
             product,
             description,
@@ -32,7 +40,10 @@ createApp({
             onSale,
             details,
             variants,
-            sizes
+            sizes,
+            cart,
+            addToCart,
+            updateImage
         }
     }
 
