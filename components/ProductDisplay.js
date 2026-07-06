@@ -36,6 +36,7 @@ const productDisplay = {
       >
         Add To Cart
       </button>
+    <product-details :details="details"></product-details>
     </div>
   </div>
     `,

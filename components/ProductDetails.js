@@ -1,0 +1,11 @@
+const productDetails = {
+    template : `
+    <ul>
+        <li v-for="detail in details">{{detail}}</li>
+    </ul>
+    `,
+
+    propd: {
+        details: Array
+    }
+}
