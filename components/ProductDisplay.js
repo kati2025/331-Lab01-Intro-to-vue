@@ -1,24 +1,44 @@
-const { createApp } = Vue
+const { ref, computed } = Vue
 
-const app = createApp({
-    setup() {
-        const cart = ref(0)
-        const premium = ref(true)
-        return {
-            cart,
-            premium
-        }
-    }
-})
+const productDisplay = {
 
-app.component('product-display', productDisplay)
+  template:
+    /*html*/
+    `
+  <div class="product-display">
+    <div class="product-container">
+      <div class="product-image">
+        <img :src="image">
+      </div>
+    </div>
+    <div class="product-info">
+      <h1>{{title}}</h1>
+      <p v-if="inventory > 10">In Stock</p>
+      <p v-else-if="inventory <= 10 && inventory > 0">Almost out of Stock</p>
+      <p v-else>Out of Stock</p>
+      <ul>
+        <li v-for="detail in details">{{detail}}</li>
+      </ul>
+      <div
+        v-for="(variant,index) in variants"
+        :key="variant.id"
+        @mouseover="updateVariant(index)"
+        class="color-circle"
+        :style="{backgroundColor: variant.color}"
+      >
+      </div>
+      <button
+        class="button"
+        :disabled="!inStock"
+        @click="addToCart"
+        :class="{disabledButton: !inStock}"
+      >
+        Add To Cart
+      </button>
+    </div>
+  </div>
+    `,
 
-app.mount('#app')
-
-
-
-
-/*createApp({
     setup(){
         const product = ref('Boots')
         const brand = ref('SE 331')
@@ -89,5 +109,4 @@ app.mount('#app')
             onSaleMessage
         }
     }
-
-}).mount('#app')*/
+}
