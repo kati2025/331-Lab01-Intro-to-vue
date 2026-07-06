@@ -25,7 +25,7 @@
             <h1>
                 {{ title }}
             </h1>
-            <p v-if="onSale">On Sale</p>
+            <p v-if="onSale">{{onSaleMessage}}</p>
             <p v-else>not on sale</p>
             <div>
                 <button class="button" @click="toggleStock">Toggle Stock</button>

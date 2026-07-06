@@ -5,9 +5,9 @@ createApp({
         const product = ref('Boots')
         const brand = ref('SE 331')
         const description = ref('Description: good')
-        const image = ref('./assets/images/socks_green.jpg')
+        //const image = ref('./assets/images/socks_green.jpg')
         const link = ref('http://www.camt.cmu.ac.th')
-        const inStock = ref(true)
+        //const inStock = ref(true)
         const inventory = ref(9)
         const onSale = ref(true)
 
@@ -32,9 +32,9 @@ createApp({
         const title = computed(() =>{
             return brand.value + ' ' + product.value
         })
-            function updateImage(variantImage){
+            /*function updateImage(variantImage){
                 image.value = variantImage
-            }
+            }*/
             function toggleStock() {
                 inStock.value =!inStock.value
             }
@@ -46,6 +46,11 @@ createApp({
             })
             const inStock = computed(() => {
                 return variants.value[selectedVariant.value].quantity
+            })
+            const onSaleMessage = computed(() => {
+                if (onSale.value) {
+                    return brand.value + ' ' + product.value + ' ' + 'is on sale'
+                }
             })
 
         return {
@@ -61,8 +66,9 @@ createApp({
             sizes,
             cart,
             addToCart,
-            updateImage,
-            toggleStock
+            toggleStock,
+            updateVariant,
+            onSaleMessage
         }
     }
 
