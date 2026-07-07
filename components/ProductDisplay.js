@@ -103,6 +103,9 @@ const productDisplay = {
                     return 30
                 }
             })
+            function removeFromCart() {
+                emit('remove-from-cart', variants.value[selectedVariant.value].id)
+            }
 
         return {
             title,
@@ -120,7 +123,8 @@ const productDisplay = {
             toggleStock,
             updateVariant,
             onSaleMessage,
-            shipping
+            shipping,
+            removeFromCart
         }
     }
 }
