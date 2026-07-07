@@ -37,6 +37,7 @@ const productDisplay = {
         Add To Cart
       </button>
     <product-details :details="details"></product-details>
+    <button class="button remove-button" @click="removeFromCart">Remove from Cart</button>
     </div>
   </div>
     `,
