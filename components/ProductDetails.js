@@ -5,7 +5,7 @@ const productDetails = {
     </ul>
     `,
 
-    propd: {
+    props: {
         details: Array
     }
 }
